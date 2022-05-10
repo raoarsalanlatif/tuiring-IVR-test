@@ -1,0 +1,2 @@
+export const EXERCISE_PROVIDER_TOKEN = 'EXERCISE_PROVIDER_TOKEN';
+export const EXERCISE_COLLECTION = 'Exercises';

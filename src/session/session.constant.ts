@@ -1,0 +1,2 @@
+export const SESSION_PROVIDER_TOKEN = 'SESSION_PROVIDER_TOKEN';
+export const SESSION_COLLECTION = 'Sessions';
