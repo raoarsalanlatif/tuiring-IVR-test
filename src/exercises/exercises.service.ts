@@ -6,7 +6,7 @@ import { IExercise } from './exercise.schema';
 import { EXERCISE_PROVIDER_TOKEN } from './exercise.constant';
 import { CreateExerciseDto } from './dtos/create-exercise.dto';
 
-const { RESOURCE_ALREADY_EXIST } = getMessages('User(s)');
+const { RESOURCE_ALREADY_EXIST } = getMessages('Exercise(s)');
 @Injectable()
 export class ExercisesService {
   constructor(
@@ -52,7 +52,7 @@ export class ExercisesService {
   }
 
   async insertExercise(exerciseObject: CreateExerciseDto) {
-    const { title, description, time, text, is_active, is_enable } =
+    const { title, description, time, delay, text, is_active, is_enable } =
       exerciseObject;
 
     const ifExists = await this.getExerciseByName(title.en);
@@ -64,6 +64,7 @@ export class ExercisesService {
       title,
       description,
       time,
+      delay,
       text,
       is_active,
       is_enable,

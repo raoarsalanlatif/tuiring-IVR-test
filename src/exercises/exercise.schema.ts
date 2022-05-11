@@ -7,6 +7,7 @@ export interface IExercise {
   title: IMultilingual;
   description: IMultilingual;
   time: number;
+  delay: number;
   text: string[];
   is_active: boolean;
   is_enable: boolean;
@@ -25,6 +26,10 @@ export const ExerciseSchema = new Schema<IExercise>(
       _id: false,
     },
     time: {
+      type: Number,
+      required: true,
+    },
+    delay: {
       type: Number,
       required: true,
     },

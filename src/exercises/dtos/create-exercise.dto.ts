@@ -23,6 +23,9 @@ export class CreateExerciseDto {
   @IsNumber()
   time: number;
 
+  @IsNumber()
+  delay: number;
+
   @IsArray()
   text: string[];
 
