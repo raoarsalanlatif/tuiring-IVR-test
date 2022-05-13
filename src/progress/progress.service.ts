@@ -18,7 +18,7 @@ export class ProgressService {
   async getProgressByName(title: string): Promise<IProgress> {
     return await this.progressModel
       .findOne({ title: title, is_enable: true })
-      .populate({ path: 'uuid session', match: { is_enable: true } });
+      .populate({ path: 'user_id session', match: { is_enable: true } });
   }
 
   async getPaginatedProgress(
@@ -39,7 +39,7 @@ export class ProgressService {
       .sort(orderBy)
       .skip(skip)
       .limit(rpp)
-      .populate({ path: 'uuid session', match: { is_enable: true } });
+      .populate({ path: 'user_id session', match: { is_enable: true } });
     return {
       pages: `Page ${page} of ${totalPages}`,
       total: totalDocuments,
@@ -51,21 +51,22 @@ export class ProgressService {
     return await this.progressModel
       .find($filter)
       .sort($orderBy)
-      .populate({ path: 'uuid session', match: { is_enable: true } });
+      .populate({ path: 'user_id session', match: { is_enable: true } });
   }
 
   async insertSession(sessionObject: CreateProgressDto) {
-    const { uuid, session, is_active, is_enable } = sessionObject;
+    const { user_id, session, status, is_active, is_enable } = sessionObject;
 
     return await new this.progressModel({
-      uuid,
+      user_id,
       session,
+      status,
       is_active,
       is_enable,
     }).save();
   }
 
   async deletePrevious(uuid: string) {
-    await this.progressModel.deleteMany({ uuid: uuid });
+    await this.progressModel.deleteMany({ user_id: uuid });
   }
 }

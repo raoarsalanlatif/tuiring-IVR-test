@@ -5,6 +5,7 @@ import getMessages from 'src/app/api-messages';
 import { IExercise } from './exercise.schema';
 import { EXERCISE_PROVIDER_TOKEN } from './exercise.constant';
 import { CreateExerciseDto } from './dtos/create-exercise.dto';
+import { exerciseData } from './exercise.data';
 
 const { RESOURCE_ALREADY_EXIST } = getMessages('Exercise(s)');
 @Injectable()
@@ -69,5 +70,13 @@ export class ExercisesService {
       is_active,
       is_enable,
     }).save();
+  }
+
+  async seed() {
+    const count = await this.exerciseModel.count();
+    if (count === 0) {
+      await this.exerciseModel.insertMany(exerciseData);
+      return 'Exercise model seeded successfully';
+    }
   }
 }

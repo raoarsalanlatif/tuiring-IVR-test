@@ -5,6 +5,7 @@ import getMessages from 'src/app/api-messages';
 import { ISession } from './session.schema';
 import { SESSION_PROVIDER_TOKEN } from './session.constant';
 import { CreateSessionDto } from './dtos/create-session.dto';
+import { sessionData } from './session.data';
 
 const { RESOURCE_ALREADY_EXIST } = getMessages('User(s)');
 
@@ -21,7 +22,7 @@ export class SessionService {
         'title.en': title,
         is_enable: true,
       })
-      .populate({ path: 'exercise', match: { is_enable: true } });
+      .populate({ path: 'exercises', match: { is_enable: true } });
   }
 
   async getPaginatedSession(
@@ -42,7 +43,7 @@ export class SessionService {
       .sort(orderBy)
       .skip(skip)
       .limit(rpp)
-      .populate({ path: 'exercise', match: { is_enable: true } });
+      .populate({ path: 'exercises', match: { is_enable: true } });
     return {
       pages: `Page ${page} of ${totalPages}`,
       total: totalDocuments,
@@ -54,11 +55,11 @@ export class SessionService {
     return await this.sessionModel
       .find($filter)
       .sort($orderBy)
-      .populate({ path: 'exercise', match: { is_enable: true } });
+      .populate({ path: 'exercises', match: { is_enable: true } });
   }
 
   async insertSession(sessionObject: CreateSessionDto) {
-    const { title, description, exercise, total_time, is_active, is_enable } =
+    const { title, description, exercises, total_time, is_active, is_enable } =
       sessionObject;
 
     const ifExists = await this.getSessionByName(title.en);
@@ -69,10 +70,18 @@ export class SessionService {
     return await new this.sessionModel({
       title,
       description,
-      exercise,
+      exercises,
       total_time,
       is_active,
       is_enable,
     }).save();
+  }
+
+  async seed() {
+    const count = await this.sessionModel.count();
+    if (count === 0) {
+      await this.sessionModel.insertMany(sessionData);
+      return 'Session model seeded successfully';
+    }
   }
 }

@@ -44,6 +44,11 @@ export class SessionController {
     };
   }
 
+  @Get('seed-model')
+  async seed() {
+    return await this.sessionService.seed();
+  }
+
   @Post()
   @ApiBody({ type: CreateSessionDto })
   @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))

@@ -4,8 +4,6 @@ import {
   Post,
   UseInterceptors,
   Body,
-  ValidationPipe,
-  UsePipes,
   UseFilters,
 } from '@nestjs/common';
 import { HttpExceptionFilter } from 'src/app/filters/http-exception.filter';
@@ -27,8 +25,8 @@ export class ExercisesController {
   constructor(private exerciseService: ExercisesService) {}
 
   @Get()
-  @UseInterceptors(TranslatorInterceptor)
   @ApiQuery({ type: QueryParamsDTO })
+  @UseInterceptors(TranslatorInterceptor)
   async get(@ParamsHandler() pagination: IPaginationQuery) {
     const { $rpp, $page, $filter, $orderBy } = pagination;
     if ($rpp && $page) {
@@ -44,9 +42,13 @@ export class ExercisesController {
     };
   }
 
+  @Get('seed-model')
+  async seed() {
+    return await this.exerciseService.seed();
+  }
+
   @Post()
   @ApiBody({ type: CreateExerciseDto })
-  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
   async insert(@Body() body: CreateExerciseDto) {
     const createExercise = await this.exerciseService.insertExercise(body);
     return { message: RESOURCE_CREATED, data: createExercise };

@@ -8,7 +8,7 @@ export enum Status {
 }
 
 export interface IProgress {
-  uuid: Schema.Types.ObjectId;
+  user_id: Schema.Types.ObjectId;
   session: Schema.Types.ObjectId;
   status: string;
   is_active: boolean;
@@ -17,7 +17,7 @@ export interface IProgress {
 
 export const ProgressSchema = new Schema<IProgress>(
   {
-    uuid: {
+    user_id: {
       type: Schema.Types.ObjectId,
       ref: USER_COLLECTION,
       required: true,

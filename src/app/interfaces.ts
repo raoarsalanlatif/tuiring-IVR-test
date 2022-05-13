@@ -1,8 +1,8 @@
 export interface IPaginationQuery {
   $rpp?: number;
   $page?: number;
-  $orderBy: Object;
-  $filter: Object;
+  $orderBy?: Object;
+  $filter?: Object;
 }
 export interface IForecastQuery {
   $userId: string;
