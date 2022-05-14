@@ -4,14 +4,14 @@ import { ApiProperty } from '@nestjs/swagger';
 export class MultilingualDto {
   @ApiProperty({
     required: true,
-    default: true,
+    default: '',
   })
   @IsString()
   en: string;
 
   @ApiProperty({
     required: true,
-    default: true,
+    default: '',
   })
   @IsString()
   ar: string;
