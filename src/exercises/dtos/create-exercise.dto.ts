@@ -12,7 +12,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateExerciseDto {
   @ApiProperty({
-    description: 'title e.g title={ en: Flash, ur: فلاش}',
+    description: 'title e.g title={ en: Flash, ar: فلاش}',
     required: false,
     default: { en: '', ar: '' },
   })
