@@ -26,7 +26,7 @@ export class CreateProgressDto {
   session: string;
 
   @ApiProperty({
-    description: 'Status Enum e.g Status=Completed or Status=Inompleted',
+    description: 'Status Enum e.g Status=Complete or Status=Incomplete',
     required: true,
     default: '',
   })
