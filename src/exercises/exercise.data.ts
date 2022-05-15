@@ -11,7 +11,12 @@ export const exerciseData = [
     },
     time: 31,
     delay: 3,
-    text: ['Squeeze Slowly', 'Hold', 'Relax slowly'],
+
+    text: [
+      { en: 'Squeeze Slowly', ar: 'الضغط ببطء' },
+      { en: 'Hold', ar: 'كبح' },
+      { en: 'Relax slowly', ar: 'استرخ ببطء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -27,7 +32,11 @@ export const exerciseData = [
     },
     time: 24,
     delay: 1,
-    text: ['Contract', 'Relax'],
+
+    text: [
+      { en: 'Contract', ar: 'اتفافية' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -43,7 +52,11 @@ export const exerciseData = [
     },
     time: 24,
     delay: 2,
-    text: ['Squeeze & hold', 'Relax'],
+
+    text: [
+      { en: 'Squeeze & hold', ar: 'اضغط مع الاستمرار' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -59,7 +72,12 @@ export const exerciseData = [
     },
     time: 26,
     delay: 2,
-    text: ['Squeeze halfway', 'Squeeze fully', 'Relax'],
+
+    text: [
+      { en: 'Squeeze halfway', ar: 'ضغط في منتصف الطريق' },
+      { en: 'Squeeze fully', ar: 'ضغط بشكل كامل' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -75,7 +93,12 @@ export const exerciseData = [
     },
     time: 40,
     delay: 3,
-    text: ['Squeeze slowly', 'Hold', 'Relax slowly'],
+
+    text: [
+      { en: 'Squeeze slowly', ar: 'الضغط ببطء' },
+      { en: 'Hold', ar: 'كبح' },
+      { en: 'Relax slowly', ar: 'استرخ ببطء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -92,11 +115,11 @@ export const exerciseData = [
     time: 25,
     delay: 2,
     text: [
-      'Squeeze slightly',
-      'Squeeze Halfway',
-      'Squeeze more',
-      'Squeeze fully',
-      'Relax',
+      { en: 'Squeeze slightly', ar: 'ضغط قليلا' },
+      { en: 'Squeeze Halfway', ar: 'ضغط في منتصف الطريق' },
+      { en: 'Squeeze more', ar: 'ضغط أكثر' },
+      { en: 'Squeeze fully', ar: 'ضغط بشكل كامل' },
+      { en: 'Relax', ar: 'الاسترخاء' },
     ],
     is_active: true,
     is_enable: true,
@@ -113,7 +136,11 @@ export const exerciseData = [
     },
     time: 29,
     delay: 1.5,
-    text: ['Squeeze', 'Relax Slowly'],
+    text: [
+      { en: 'Squeeze', ar: 'يعصر' },
+      { en: 'Relax Slowly', ar: 'استرخ ببطء' },
+    ],
+
     is_active: true,
     is_enable: true,
   },
@@ -129,7 +156,12 @@ export const exerciseData = [
     },
     time: 35,
     delay: 2,
-    text: ['Squeeze more', 'Relax', 'Sqeeze fully'],
+
+    text: [
+      { en: 'Squeeze more', ar: 'ضغط أكثر' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+      { en: 'Sqeeze fully', ar: 'ضغط بشكل كامل' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -145,7 +177,12 @@ export const exerciseData = [
     },
     time: 29,
     delay: 2,
-    text: ['Contract', 'Relax', 'Squeeze & Hold'],
+
+    text: [
+      { en: 'Contract', ar: 'اتفافية' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+      { en: 'Squeeze & Hold', ar: 'اضغط مع الاستمرار' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -161,7 +198,11 @@ export const exerciseData = [
     },
     time: 23,
     delay: 4,
-    text: ['Push', 'Relax'],
+
+    text: [
+      { en: 'Push', ar: 'يدفع' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -177,7 +218,11 @@ export const exerciseData = [
     },
     time: 25,
     delay: 5,
-    text: ['Sqeeze & Hold', 'Relax'],
+
+    text: [
+      { en: 'Sqeeze & Hold', ar: 'اضغط مع الاستمرار' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -193,12 +238,13 @@ export const exerciseData = [
     },
     time: 25,
     delay: 3,
+
     text: [
-      'Relax slightly',
-      'Relax halfway',
-      'Relax more',
-      'Relax fully',
-      'Contract',
+      { en: 'Relax slightly', ar: 'استرخ قليلاً' },
+      { en: 'Relax halfway', ar: 'استرخ في منتصف الطريق' },
+      { en: 'Relax more', ar: 'استرخ أكثر' },
+      { en: 'Relax fully', ar: 'استرخِ تمامًا' },
+      { en: 'Contract', ar: 'اتفافية' },
     ],
     is_active: true,
     is_enable: true,
@@ -215,7 +261,11 @@ export const exerciseData = [
     },
     time: 29,
     delay: 3,
-    text: ['Sqeeze slowly', 'Relax slowly'],
+
+    text: [
+      { en: 'Sqeeze slowly', ar: 'الضغط ببطء' },
+      { en: 'Relax slowly', ar: 'استرخ ببطء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -231,14 +281,15 @@ export const exerciseData = [
     },
     time: 35,
     delay: 5,
+
     text: [
-      'sqeeze slighty',
-      'squeeze halfway',
-      'squeeze more',
-      'squeeze fully',
-      'Relax halfway',
-      'Relax more',
-      'Relax fully',
+      { en: 'sqeeze slighty', ar: 'ضغط قليلا' },
+      { en: 'squeeze halfway', ar: 'ضغط في منتصف الطريق' },
+      { en: 'squeeze more', ar: 'ضغط أكثر' },
+      { en: 'squeeze fully', ar: 'ضغط تماما' },
+      { en: 'Relax halfway', ar: 'استرخ في منتصف الطريق' },
+      { en: 'Relax more', ar: 'استرخ أكثر' },
+      { en: 'Relax fully', ar: 'استرخِ تمامًا' },
     ],
     is_active: true,
     is_enable: true,
@@ -255,7 +306,11 @@ export const exerciseData = [
     },
     time: 34,
     delay: 2,
-    text: ['sqeeze slowly'],
+
+    text: [
+      { en: 'sqeeze slowly', ar: 'الضغط ببطء' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -271,7 +326,11 @@ export const exerciseData = [
     },
     time: 9,
     delay: 1,
-    text: ['Contract quickly'],
+
+    text: [
+      { en: 'Contract quickly', ar: 'تعاقد بسرعة' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+    ],
     is_active: true,
     is_enable: true,
   },
@@ -287,7 +346,10 @@ export const exerciseData = [
     },
     time: 12,
     delay: 1,
-    text: ['Squeeze & hold'],
+    text: [
+      { en: 'Squeeze & hold', ar: 'اضغط مع الاستمرار' },
+      { en: 'Relax', ar: 'الاسترخاء' },
+    ],
     is_active: true,
     is_enable: true,
   },

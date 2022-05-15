@@ -8,7 +8,7 @@ export interface IExercise {
   description: IMultilingual;
   time: number;
   delay: number;
-  text: string[];
+  text: IMultilingual[];
   is_active: boolean;
   is_enable: boolean;
 }
@@ -34,7 +34,7 @@ export const ExerciseSchema = new Schema<IExercise>(
       required: true,
     },
     text: {
-      type: [String],
+      type: [MultilingualSchema],
       required: true,
     },
     is_active: {

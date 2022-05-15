@@ -49,12 +49,13 @@ export class CreateExerciseDto {
 
   @ApiProperty({
     description:
-      'Array of texts that will be shown with each exercise e.g text=[contract,relax] etc',
+      'Array of texts that will be shown with each exercise e.g text=[{ en: Squeeze slowly, ar:الضغط ببطء }] etc',
     required: true,
     default: [],
   })
+  @ValidateNested()
   @IsArray()
-  text: string[];
+  text: MultilingualDto[];
 
   @ApiProperty({
     description: 'Boolean expression e.g is_active=true or is_active=false',
