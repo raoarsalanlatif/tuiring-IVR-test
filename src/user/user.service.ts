@@ -18,7 +18,7 @@ export class UserService {
   ) {}
 
   async getUserByName(uuid: string): Promise<IUser> {
-    return await this.userModel.findOne({ uuid: name, is_enable: true });
+    return await this.userModel.findOne({ uuid: uuid, is_enable: true });
   }
 
   async getPaginatedUser(
@@ -36,8 +36,7 @@ export class UserService {
       .find(filter)
       .sort(orderBy)
       .skip(skip)
-      .limit(rpp)
-      .populate({ path: 'crops tags', match: { is_enable: true } });
+      .limit(rpp);
     return {
       pages: `Page ${page} of ${totalPages}`,
       total: totalDocuments,
@@ -46,19 +45,16 @@ export class UserService {
   }
 
   async getFilteredUser($filter: Object, $orderBy: Object) {
-    return await this.userModel
-      .find($filter)
-      .sort($orderBy)
-      .populate('tags', 'name')
-      .populate('crops', 'name');
+    return await this.userModel.find($filter).sort($orderBy);
   }
 
   async insertUser(userObject: CreateUserDto) {
-    const { uuid, user_package, is_active, is_enable } = userObject;
+    const { uuid, user_package, start_date, end_date, is_active, is_enable } =
+      userObject;
 
     const ifExists = await this.getUserByName(uuid);
     if (ifExists) {
-      await this.progressService.deletePrevious(uuid);
+      await this.progressService.deletePrevious(ifExists._id);
       return await this.userModel.updateOne({ uuid: uuid }, userObject, {
         new: true,
       });
@@ -67,6 +63,8 @@ export class UserService {
     return await new this.userModel({
       uuid,
       user_package,
+      start_date,
+      end_date,
       is_active,
       is_enable,
     }).save();

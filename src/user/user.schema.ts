@@ -1,4 +1,4 @@
-import { Schema } from 'mongoose';
+import { ObjectId, Schema } from 'mongoose';
 import { USER_COLLECTION } from './user.constant';
 
 export enum U_Package {
@@ -8,6 +8,7 @@ export enum U_Package {
 }
 
 export interface IUser {
+  _id: ObjectId;
   uuid: string;
   user_package: string;
   start_date: string;
@@ -26,6 +27,14 @@ export const UserSchema = new Schema<IUser>(
       type: String,
       required: true,
       enum: U_Package,
+    },
+    start_date: {
+      type: String,
+      required: true,
+    },
+    end_date: {
+      type: String,
+      required: true,
     },
     is_active: {
       type: Boolean,

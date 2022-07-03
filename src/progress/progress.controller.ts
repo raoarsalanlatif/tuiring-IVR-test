@@ -2,6 +2,7 @@ import {
   Controller,
   Get,
   Post,
+  Delete,
   UseInterceptors,
   Body,
   ValidationPipe,
@@ -17,6 +18,7 @@ import { TranslatorInterceptor } from 'src/app/interceptors/response-translate.i
 import { ParamsHandler } from 'src/app/custom-decorators/params-handler.decorator';
 import { ProgressService } from './progress.service';
 import { CreateProgressDto } from './dtos/create-progress.dto';
+import { DeleteProgressDto } from './dtos/delete-progress.dto';
 
 const { RESOURCE_CREATED } = getMessages('session(s)');
 
@@ -50,5 +52,18 @@ export class ProgressController {
   async insert(@Body() body: CreateProgressDto) {
     const createProgress = await this.progressService.insertSession(body);
     return { message: RESOURCE_CREATED, data: createProgress };
+  }
+
+  @Delete()
+  @ApiBody({ type: DeleteProgressDto })
+  async removeRecordFile(@Body() body: DeleteProgressDto) {
+    console.log('controller user id=', body);
+    const removeRecord = await this.progressService.deletePrevious(
+      body.user_id,
+    );
+
+    return {
+      data: removeRecord,
+    };
   }
 }

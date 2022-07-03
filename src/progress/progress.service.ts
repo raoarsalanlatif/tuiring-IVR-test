@@ -1,5 +1,5 @@
 import { Injectable, ConflictException, Inject } from '@nestjs/common';
-import { Model } from 'mongoose';
+import { Model, ObjectId } from 'mongoose';
 import { IPageinatedDataTable } from 'src/app/interfaces';
 import getMessages from 'src/app/api-messages';
 import { IProgress } from './progress.schema';
@@ -66,7 +66,8 @@ export class ProgressService {
     }).save();
   }
 
-  async deletePrevious(uuid: string) {
-    await this.progressModel.deleteMany({ user_id: uuid });
+  async deletePrevious(user_id: ObjectId) {
+    console.log('service user id=', user_id);
+    await this.progressModel.deleteMany({ user_id: user_id });
   }
 }

@@ -27,7 +27,7 @@ export class CreateUserDto {
     default: '',
   })
   @IsString()
-  start_date: Date;
+  start_date: string;
 
   @ApiProperty({
     description: 'End Date e.g start_date=2022-04-14',
@@ -35,7 +35,7 @@ export class CreateUserDto {
     default: '',
   })
   @IsString()
-  end_date: Date;
+  end_date: string;
 
   @ApiProperty({
     description: 'Boolean expression e.g is_active=true or is_active=false',

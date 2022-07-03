@@ -2,7 +2,6 @@ import {
   Controller,
   Get,
   Post,
-  UseInterceptors,
   Body,
   ValidationPipe,
   UsePipes,
@@ -27,7 +26,6 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Get()
-  @UseInterceptors(TranslatorInterceptor)
   @ApiQuery({ type: QueryParamsDTO })
   async get(@ParamsHandler() pagination: IPaginationQuery) {
     const { $rpp, $page, $filter, $orderBy } = pagination;
@@ -46,9 +44,8 @@ export class UserController {
 
   @Post()
   @ApiBody({ type: CreateUserDto })
-  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
   async insert(@Body() body: CreateUserDto) {
-    const createNotification = await this.userService.insertUser(body);
-    return { message: RESOURCE_CREATED, data: createNotification };
+    const createUser = await this.userService.insertUser(body);
+    return { message: RESOURCE_CREATED, data: createUser };
   }
 }
