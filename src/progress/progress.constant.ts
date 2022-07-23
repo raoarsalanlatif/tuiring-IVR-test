@@ -1,2 +1,0 @@
-export const PROGRESS_PROVIDER_TOKEN = 'PROGRESS_PROVIDER_TOKEN';
-export const PROGRESS_COLLECTION = 'Progress';

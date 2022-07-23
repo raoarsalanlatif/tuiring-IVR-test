@@ -21,3 +21,11 @@ export interface IServer {
   port: number;
   allowedClients: string[];
 }
+
+export interface ITwilioSID {
+  twilioSid: String;
+}
+
+export interface ITwilioAuthToken {
+  twilioAuthToken: String;
+}
